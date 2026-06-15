@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://buep6m4mimva5"]
+
+[ext_resource type="Script" uid="uid://bh20y1l2qwb33" path="res://scenes/combat_gui.gd" id="1_ikggn"]
+
+[node name="Combat_gui" type="Control" unique_id=2144204504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ikggn")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=277037804]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 27.0
+value = 100.0

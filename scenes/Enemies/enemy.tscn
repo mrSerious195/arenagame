@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dhkptvsk86tl7"]
+
+[ext_resource type="Texture2D" uid="uid://4nniuvlpf4f5" path="res://icon.svg" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://codo6pnpea6tx" path="res://scenes/Enemies/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://cx6xwvhvgsm7l" path="res://scenes/EntityEffects/contact_damage.tscn" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://c7ebyatsxo0fi" path="res://scenes/EntityEffects/dumbmove_x.tscn" id="4_5uy6h"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1512377749]
+collision_layer = 4
+script = ExtResource("1_md0e3")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=336785832]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7p1mj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1751220211]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="ContactDamage" parent="." unique_id=2132826148 instance=ExtResource("3_4ra3w")]
+knockback = 500.0
+
+[node name="DumbmoveX" parent="." unique_id=446670836 instance=ExtResource("4_5uy6h")]
+SPEED = 200.0

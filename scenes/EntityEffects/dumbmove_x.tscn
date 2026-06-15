@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7ebyatsxo0fi"]
+
+[ext_resource type="Script" uid="uid://bbpiu33vbwxtj" path="res://scenes/EntityEffects/dumbmove_x.gd" id="1_cpf6y"]
+
+[node name="DumbmoveX" type="Node2D" unique_id=446670836]
+script = ExtResource("1_cpf6y")
