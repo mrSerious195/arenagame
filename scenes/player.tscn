@@ -2,17 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bh3s45uhlay7p" path="res://scenes/Player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://k62d1py5dosu" path="res://scenes/ActionObjects/bullet.tscn" id="2_dqkch"]
-[ext_resource type="Texture2D" uid="uid://4nniuvlpf4f5" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://calnue217by3g" path="res://Assets/tonk.png" id="3_qhqgy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qlg0r"]
+size = Vector2(32, 12)
 
 [node name="Player" type="CharacterBody2D" unique_id=1408290018]
 collision_layer = 2
 script = ExtResource("1_g2els")
 BulletScene = ExtResource("2_dqkch")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1001441940]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_qhqgy")
+[node name="Tonk" type="Sprite2D" parent="." unique_id=758785134]
+z_index = 2
+scale = Vector2(4, 4)
+texture = ExtResource("3_qhqgy")
+
+[node name="TankBarrel" type="Node2D" parent="Tonk" unique_id=547327507]
+scale = Vector2(0.25, 0.25)
+
+[node name="TankBarrel" type="MeshInstance2D" parent="Tonk/TankBarrel" unique_id=795843903]
+z_index = -1
+position = Vector2(16, -1)
+scale = Vector2(1.03125, 1)
+mesh = SubResource("QuadMesh_qlg0r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1217438012]
+visible = false
 scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
