@@ -9,9 +9,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func player_health_changed(health:float,max_health:float)->void:
 	$ProgressBar.max_value=max_health
 	$ProgressBar.value=health
+
+func wave_changed(newstage:int)->void:
+	$VBoxContainer/StageLabel.text=str(newstage)

@@ -15,6 +15,5 @@ func take_damage(damage:float)-> void:
 	if(health<0):
 		queue_free()
 		
-func take_knockback(knockback:float, pucher:Node2D)-> void:
-	print("knocked back")
-	velocity+= (global_position-pucher.global_position ).normalized()*knockback
+func take_knockback(knockback:Vector2)-> void:
+	velocity+= knockback

@@ -1,4 +1,4 @@
-extends MeshInstance2D
+extends RigidBody2D
 class_name Bullet
 @export
 var MaxTime:float=10
@@ -15,19 +15,28 @@ var bulletDirection:Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("shell spawned at position"+str(global_position))
 	get_tree().create_timer(MaxTime).timeout.connect(queue_free)
 	if bulletDirection.x>0:
 		rotation =atan(bulletDirection.y/bulletDirection.x)
 	else:
 		rotation =PI+ atan(bulletDirection.y/bulletDirection.x)
 		
+	linear_velocity+= bulletDirection * bulletVelocity
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	global_position += bulletDirection * bulletVelocity * delta
+func _physics_process(delta: float) -> void:
+	linear_velocity += get_gravity() * delta
+	_animate_rotation()
 	
 
-
+func _animate_rotation()->void:
+	if linear_velocity.x>0:
+		rotation =atan(linear_velocity.y/linear_velocity.x)
+	else:
+		rotation =PI+ atan(linear_velocity.y/linear_velocity.x)
+		
 func on_hit(node:Node2D)->void:
 	var shouldBulletDisapear:bool =true
 	var shouldDamage:bool = false
@@ -48,7 +57,7 @@ func on_hit(node:Node2D)->void:
 			
 	if(shouldDamage):
 		if node.has_method("take_knockback"):
-				node.take_knockback(knockback, self)
+				node.take_knockback(knockback*linear_velocity)
 		if node.has_method("take_damage"):
 				node.take_damage(damage)
 	if(shouldBulletDisapear):

@@ -7,6 +7,7 @@
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1512377749]
 collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_md0e3")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=336785832]

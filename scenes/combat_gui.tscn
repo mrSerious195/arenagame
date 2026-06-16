@@ -16,3 +16,21 @@ layout_mode = 0
 offset_right = 200.0
 offset_bottom = 27.0
 value = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=258596328]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Wave" type="Label" parent="VBoxContainer" unique_id=1228366643]
+layout_mode = 2
+text = "Wave"
+
+[node name="StageLabel" type="Label" parent="VBoxContainer" unique_id=1628054370]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1

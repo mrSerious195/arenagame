@@ -15,8 +15,6 @@ var JUMP_CUTOFF:float = .5
 @export 
 var MAX_HEALTH:float = 100.0
 var health:float = MAX_HEALTH
-@export 
-var BulletScene:PackedScene
 
 signal health_changed(health:float,max_health:float)
 
@@ -26,7 +24,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_handleYMovement(delta)
 	_handleXMovement()
-	_handle_shooting()
 	_animate()
 	move_and_slide() 
 
@@ -51,22 +48,13 @@ func _handleXMovement() -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, DECELERATION*AIR_CONTROLX)
 			
-func _handle_shooting()-> void:
-	if(Input.is_action_just_pressed("fireGun")):
-		var bullet:Bullet = BulletScene.instantiate()
-		bullet.currentTarget=bullet.Target.ENEMY
-		bullet.bulletDirection=(get_global_mouse_position()-global_position).normalized()
-		bullet.scale=Vector2(5,5)
-		bullet.global_position=global_position
-		get_parent().add_child(bullet)
+
 
 func _animate()->void:
 	var mousedirection=get_global_mouse_position()-global_position
 	if mousedirection.x>0:
-		$Tonk/TankBarrel.rotation =atan(mousedirection.y/mousedirection.x)
 		$Tonk.flip_h=false
 	else:
-		$Tonk/TankBarrel.rotation =PI+ atan(mousedirection.y/mousedirection.x)
 		$Tonk.flip_h=true
 
 func take_damage(damage:float)-> void:
@@ -75,7 +63,6 @@ func take_damage(damage:float)-> void:
 	if(health<0):
 		print("rip")
 		
-func take_knockback(knockback:float, pucher:Node2D)-> void:
-	print("knocked back")
-	velocity+= (global_position-pucher.global_position ).normalized()*knockback
+func take_knockback(knockback:Vector2)-> void:
+	velocity+= knockback
 	
