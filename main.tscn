@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c6eldnn6sqoju"]
+
+[ext_resource type="Script" uid="uid://oykl3w26nhg3" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://wcvdwomxbio8" path="res://scenes/game.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b8sotewh58wmq" path="res://scenes/game_over_scene.tscn" id="3_h2yge"]
+
+[node name="main" type="Node" unique_id=159128835]
+script = ExtResource("1_ig7tw")
+gamescene = ExtResource("2_0xm2m")
+gameOverscene = ExtResource("3_h2yge")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1038168571]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=108322434]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "start game"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="startGame"]

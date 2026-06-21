@@ -6,6 +6,8 @@ var DECELERATION:float = 100
 var AIR_CONTROLX:float=0.2
 var player:Player
 var parent:CharacterBody2D
+@export 
+var body: Sprite2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	parent=get_parent()
@@ -19,6 +21,7 @@ func _physics_process(_delta: float) -> void:
 	var playerdif = player.global_position.x-parent.global_position.x
 	var playerdir=sign(playerdif)
 	if(abs(playerdif)>10):
+		body.flip_h=playerdif<0
 		if(parent.is_on_floor()):
 			parent.velocity.x = move_toward(parent.velocity.x,playerdir* SPEED, ACCELERATION)
 		else:

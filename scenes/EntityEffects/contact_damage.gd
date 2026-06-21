@@ -8,6 +8,8 @@ var damage:float = 10
 @export
 var cooldown:float = 1.0
 
+signal attack
+
 func _physics_process(_delta: float) -> void:
 	var touches:Array[Node2D] =$Area2D.get_overlapping_bodies()
 	for ob:Node2D in touches:
@@ -15,6 +17,7 @@ func _physics_process(_delta: float) -> void:
 		
 func DoContactDamage(node:Node2D):
 	if(not recentlyDamaged.has(node)):
+		attack.emit()
 		recentlyDamaged.append(node)
 		get_tree().create_timer(cooldown).timeout.connect(func():recentlyDamaged.erase(node))
 		if node.has_method("take_knockback"):

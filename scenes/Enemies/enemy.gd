@@ -2,7 +2,6 @@ extends CharacterBody2D
 @export
 var health = 50
 
-
 func _ready() -> void:
 	add_to_group("enemies")
 

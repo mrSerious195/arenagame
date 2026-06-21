@@ -16,10 +16,12 @@ script = ExtResource("1_g2els")
 
 [node name="Tonk" type="Sprite2D" parent="." unique_id=758785134]
 z_index = 2
+position = Vector2(0, 12)
 scale = Vector2(4, 4)
 texture = ExtResource("3_qhqgy")
 
 [node name="TankBarrel" type="Node2D" parent="Tonk" unique_id=547327507]
+position = Vector2(0, -2.5)
 scale = Vector2(0.25, 0.25)
 script = ExtResource("4_dqkch")
 BulletScene = ExtResource("2_dqkch")
@@ -31,14 +33,17 @@ scale = Vector2(1.03125, 1)
 mesh = SubResource("QuadMesh_qlg0r")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1217438012]
-visible = false
+position = Vector2(4, 2)
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+polygon = PackedVector2Array(-6, -56, -32, -56, -44, -18, -64, 56, -54, 64, 48, 64, 56, 56, 16, -16)
 
 [node name="Tankguy" type="Node2D" parent="." unique_id=583245618]
-position = Vector2(-10, -10)
+position = Vector2(-7, -10)
 scale = Vector2(4, 4)
 script = ExtResource("6_fjrip")
 
 [node name="Tankguy" type="Sprite2D" parent="Tankguy" unique_id=1089326968]
 texture = ExtResource("5_tuyoq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=272171335]
+position = Vector2(0, 2)

@@ -17,7 +17,7 @@ var MAX_HEALTH:float = 100.0
 var health:float = MAX_HEALTH
 
 signal health_changed(health:float,max_health:float)
-
+signal died
 func _ready() -> void:
 	add_to_group("players")
 
@@ -60,8 +60,8 @@ func _animate()->void:
 func take_damage(damage:float)-> void:
 	health-=damage
 	health_changed.emit(health,MAX_HEALTH)
-	if(health<0):
-		print("rip")
+	if(health<=0):
+		died.emit()
 		
 func take_knockback(knockback:Vector2)-> void:
 	velocity+= knockback
