@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://diykh6p213rb4"]
+
+[ext_resource type="Script" uid="uid://ld2jspus7j6m" path="res://scenes/ActionObjects/bomb.gd" id="1_4fdc2"]
+[ext_resource type="Texture2D" uid="uid://droko1ba7lqb8" path="res://Assets/bomb.png" id="1_j12o6"]
+[ext_resource type="Texture2D" uid="uid://vnykk2acta00" path="res://Assets/explosion.png" id="3_g7thr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7thr"]
+radius = 62.008064
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4fdc2"]
+radius = 23.0
+
+[node name="Bomb" type="RigidBody2D" unique_id=597609838]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_4fdc2")
+fuse = 2.0
+damage = 20.0
+knockback = 50.0
+
+[node name="Bomb" type="Sprite2D" parent="." unique_id=816793319]
+position = Vector2(-7.5, 6)
+scale = Vector2(3.0625, 3.25)
+texture = ExtResource("1_j12o6")
+
+[node name="Label" type="Label" parent="Bomb" unique_id=1373925066]
+modulate = Color(1, 0, 1, 1)
+offset_left = -11.5
+offset_top = -6.0
+offset_right = 11.5
+offset_bottom = 6.0
+theme_override_font_sizes/font_size = 8
+text = "bomb"
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=818568803]
+position = Vector2(-11.000002, 8)
+scale = Vector2(6, 5.925)
+texture = ExtResource("3_g7thr")
+
+[node name="Area2D" type="Area2D" parent="Explosion" unique_id=1169358121]
+position = Vector2(1.25, -1)
+scale = Vector2(0.25, 0.25)
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Explosion/Area2D" unique_id=2023013063]
+position = Vector2(-3, 1)
+shape = SubResource("CircleShape2D_g7thr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1417647240]
+position = Vector2(-12, 11)
+shape = SubResource("CircleShape2D_4fdc2")

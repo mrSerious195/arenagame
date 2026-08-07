@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dgxxits0htakj" path="res://scenes/tank_barrel.gd" id="4_dqkch"]
 [ext_resource type="Texture2D" uid="uid://uwimudbfkms8" path="res://Assets/tankguy.png" id="5_tuyoq"]
 [ext_resource type="Script" uid="uid://coqep1njn2wjf" path="res://scenes/tankguy.gd" id="6_fjrip"]
+[ext_resource type="Script" uid="uid://bjl4erclrvlq7" path="res://scenes/bombdrop_on_command.gd" id="7_fjrip"]
+[ext_resource type="PackedScene" uid="uid://diykh6p213rb4" path="res://scenes/ActionObjects/bomb.tscn" id="8_smehm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qlg0r"]
 size = Vector2(32, 12)
@@ -47,3 +49,7 @@ texture = ExtResource("5_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=272171335]
 position = Vector2(0, 2)
+
+[node name="bombdropOnCommand" type="Node2D" parent="." unique_id=2007521917]
+script = ExtResource("7_fjrip")
+bombScene = ExtResource("8_smehm")
