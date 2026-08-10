@@ -54,6 +54,12 @@ script = ExtResource("9_1kice")
 [node name="Player" parent="." unique_id=1408290018 instance=ExtResource("10_5newe")]
 position = Vector2(207, 249)
 
+[node name="TankBarrel" parent="Player/Tonk" parent_id_path=PackedInt32Array(1408290018, 758785134) index="0" unique_id=547327507 node_paths=PackedStringArray("range")]
+range = NodePath("../../../CanvasLayer2/Combat_gui/VBoxContainer/PanelContainer2/VBoxContainer/MarginContainer/TextureProgressBar")
+
+[node name="bombdropOnCommand" parent="Player" index="4" unique_id=2007521917 node_paths=PackedStringArray("rangeVisualLiser")]
+rangeVisualLiser = NodePath("../../CanvasLayer2/Combat_gui/VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/TextureProgressBar")
+
 [node name="stadium" parent="." unique_id=136447594 instance=ExtResource("11_37s47")]
 z_index = 1
 
@@ -66,3 +72,6 @@ player = NodePath("../../Player")
 [connection signal="child_exiting_tree" from="CreatureManager" to="CreatureManager" method="check_if_wave_ended"]
 [connection signal="wave_ended" from="CreatureManager" to="WaveManager" method="next_wave"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+
+[editable path="Player"]
+[editable path="CanvasLayer2/Combat_gui"]

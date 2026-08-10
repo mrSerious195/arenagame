@@ -6,14 +6,17 @@ var maxrotation:float = PI/8
 var cooldown:float
 @export 
 var BulletScene:PackedScene
-
+@export
+var range:Range
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	range.max_value=cooldown
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	range.value=$Timer.time_left
 	_animate()
 	_handle_shooting()
 

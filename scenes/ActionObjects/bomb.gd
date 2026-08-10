@@ -6,6 +6,7 @@ var damage:float
 @export
 var knockback:float
 
+
 var explosionsize:Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
