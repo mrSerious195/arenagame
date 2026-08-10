@@ -12,12 +12,14 @@ func _ready() -> void:
 	explosionsize=$Explosion.scale
 	$Explosion.scale=Vector2.ZERO
 	$Explosion.visible=false
-	get_tree().create_timer(fuse).timeout.connect(explode)
+	$Timer.start(fuse)
+	$Timer.timeout.connect(explode)
 
 
 # Called every frame. 'delta' is the elapsed time sincewa the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$Bomb/Node2D/Label.text=str($Timer.time_left).pad_decimals(1)
+	$Bomb/Node2D.rotation=-rotation
 
 func explode()->void:
 	$Explosion.visible=true

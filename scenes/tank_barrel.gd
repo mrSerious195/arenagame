@@ -2,7 +2,8 @@ extends Node2D
 @export
 var minrotation:float = -3*PI/8
 var maxrotation:float = PI/8
-
+@export
+var cooldown:float
 @export 
 var BulletScene:PackedScene
 
@@ -34,8 +35,8 @@ func _limited_Berrel_Movement(mousedirection:Vector2, isMirrored:bool)->float:
 	return rot
 
 func _handle_shooting()-> void:
-	if(Input.is_action_just_pressed("fireGun")):
-		print("fire")
+	if(Input.is_action_just_pressed("fireGun") and $Timer.time_left<=0):
+		$Timer.start(cooldown)
 		var bullet:Bullet = BulletScene.instantiate()
 		bullet.currentTarget=bullet.Target.ENEMY
 		bullet.bulletDirection=Vector2(1,tan(rotation)).normalized()
