@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://codo6pnpea6tx" path="res://scenes/Enemies/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://cx6xwvhvgsm7l" path="res://scenes/EntityEffects/contact_damage.tscn" id="3_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://c7ebyatsxo0fi" path="res://scenes/EntityEffects/dumbmove_x.tscn" id="4_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://calnue217by3g" path="res://Assets/tonk.png" id="4_8swre"]
+[ext_resource type="Script" uid="uid://bbpiu33vbwxtj" path="res://scenes/EntityEffects/dumbmove_x.gd" id="4_dmeym"]
+[ext_resource type="Script" uid="uid://cpg0duhoo0xaf" path="res://scenes/Enemies/add_gravety.gd" id="4_uqsge"]
 [ext_resource type="Script" uid="uid://dsol5k65l2xrr" path="res://scenes/Enemies/enemy_weapon.gd" id="5_uqk7a"]
 [ext_resource type="Texture2D" uid="uid://bonyhqp2y5qh3" path="res://Assets/fist.png" id="6_uqsge"]
 
@@ -12,6 +13,7 @@ modulate = Color(1, 0.21176471, 0.26666668, 1)
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_md0e3")
+health = 30
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1751220211]
 scale = Vector2(0.5, 0.5)
@@ -23,8 +25,12 @@ knockback = 500.0
 [node name="CollisionShape2D" parent="ContactDamage/Area2D" parent_id_path=PackedInt32Array(2132826148, 611694213) index="0" unique_id=322739340]
 position = Vector2(1, -4.5)
 
-[node name="DumbmoveX" parent="." unique_id=446670836 node_paths=PackedStringArray("body") instance=ExtResource("4_5uy6h")]
-SPEED = 200.0
+[node name="AddGravety" type="Node2D" parent="." unique_id=1357561828]
+script = ExtResource("4_uqsge")
+
+[node name="Dumb_move_x" type="Node2D" parent="." unique_id=1491115473 node_paths=PackedStringArray("body")]
+script = ExtResource("4_dmeym")
+SPEED = 150.0
 body = NodePath("../Tonk")
 
 [node name="Tonk" type="Sprite2D" parent="." unique_id=1533656156]
