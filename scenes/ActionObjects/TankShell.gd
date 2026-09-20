@@ -38,6 +38,7 @@ func _animate_rotation()->void:
 		rotation =PI+ atan(linear_velocity.y/linear_velocity.x)
 		
 func on_hit(node:Node2D)->void:
+	
 	var shouldBulletDisapear:bool =true
 	var shouldDamage:bool = false
 	

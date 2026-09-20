@@ -45,18 +45,23 @@ animations = [{
 }]
 
 [node name="Enemy2" type="CharacterBody2D" unique_id=1532327248]
-collision_layer = 0
+modulate = Color(1, 0.21176471, 0.26666668, 1)
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_75uv0")
 health = 20
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1615795079]
 scale = Vector2(0.5, 0.5)
-polygon = PackedVector2Array(4, -48, -30, -44, -44, -26, -62, 34, -52, 44, 50, 46, 62, 30, 26, -36)
+polygon = PackedVector2Array(14, -80, -56, -76, -62, -30, -42, 20, -20, 42, 18, 42, 42, 22, 64, -64)
 
 [node name="ContactDamage" parent="." unique_id=2132826148 instance=ExtResource("1_mew6u")]
 knockback = 500.0
 
-[node name="CollisionShape2D" parent="ContactDamage/Area2D" parent_id_path=PackedInt32Array(2132826148, 611694213) index="0" unique_id=322739340]
+[node name="Area2D" parent="ContactDamage" index="0" unique_id=611694213]
+collision_layer = 0
+
+[node name="CollisionShape2D" parent="ContactDamage/Area2D" index="0" unique_id=322739340]
 position = Vector2(1, -4.5)
 
 [node name="Tonk" type="Sprite2D" parent="." unique_id=2139973520]

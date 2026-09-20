@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="Wave" format=3 uid="uid://7gq8bigh03wi"]
 
+[ext_resource type="PackedScene" uid="uid://604ul28sld02" path="res://scenes/Enemies/enemy_2.tscn" id="1_nl2x4"]
 [ext_resource type="PackedScene" uid="uid://dhkptvsk86tl7" path="res://scenes/Enemies/enemy.tscn" id="1_w4bxh"]
 [ext_resource type="Script" uid="uid://brl3vgfwjapmp" path="res://scenes/Waves/Wave.gd" id="2_nl2x4"]
 
 [resource]
 script = ExtResource("2_nl2x4")
-enemiesAtLocation = Array[PackedScene]([ExtResource("1_w4bxh"), ExtResource("1_w4bxh"), ExtResource("1_w4bxh"), ExtResource("1_w4bxh")])
+enemiesAtLocation = Array[PackedScene]([ExtResource("1_nl2x4"), ExtResource("1_w4bxh"), ExtResource("1_w4bxh"), ExtResource("1_nl2x4")])
 metadata/_custom_type_script = "uid://brl3vgfwjapmp"

@@ -5,5 +5,5 @@
 
 [resource]
 script = ExtResource("2_jm122")
-enemiesAtLocation = Array[PackedScene]([ExtResource("1_t8niq"), ExtResource("1_t8niq")])
+enemiesAtLocation = Array[PackedScene]([null, ExtResource("1_t8niq")])
 metadata/_custom_type_script = "uid://brl3vgfwjapmp"

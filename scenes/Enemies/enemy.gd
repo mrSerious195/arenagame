@@ -8,8 +8,9 @@ func _ready() -> void:
 
  
 func take_damage(damage:float)-> void:
+	print("enemy damaged")
 	health-=damage
-	if(health<0):
+	if(health<=0):
 		queue_free()
 		
 func take_knockback(knockback:Vector2)-> void:
